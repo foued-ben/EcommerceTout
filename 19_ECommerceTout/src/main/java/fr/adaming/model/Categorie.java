@@ -11,9 +11,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.Min;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotEmpty;
+import org.hibernate.validator.constraints.Range;
 
 /**
  * 
@@ -39,6 +41,7 @@ public class Categorie implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="id_ca")
+	@Range(min=0, message="Veuillez entrer un ID positif.")
 	private long id;
 	@NotEmpty(message="Veuillez entrer le nom de la catégorie.")
 	@Column(name="nomCategorie_ca")

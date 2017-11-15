@@ -58,8 +58,8 @@ public class CategorieController {
 	 */
 	@RequestMapping(value = "ajouterCategorie", method = RequestMethod.POST)
 	public String soumettreAjoutCategorie(Model modele,
-			@Valid @ModelAttribute("categorieAjoutee") Categorie categorie,
-			RedirectAttributes redirectAttributes, BindingResult br) {
+			@Valid @ModelAttribute("categorieAjoutee") Categorie categorie, BindingResult br,
+			RedirectAttributes redirectAttributes) {
 		if(br.hasErrors()){
 			return "ajoutCategorie";
 		}
@@ -103,8 +103,12 @@ public class CategorieController {
 	 */
 	@RequestMapping(value="modifierCategorie", method=RequestMethod.POST)
 	public String soumettreModifCategorie(Model modele,
-			@ModelAttribute("categorieModifiee") Categorie categorie,
+			@Valid @ModelAttribute("categorieModifiee") Categorie categorie,
+			BindingResult br,
 			RedirectAttributes redirectAttributes) {
+		if(br.hasErrors()){
+			return "ajoutCategorie";
+		}
 		Categorie caOut = categorieService.updateCategorie(categorie);
 		if (caOut != null) {
 			// TODO : updater la liste de catégorie pour si on veut un menu
@@ -143,7 +147,12 @@ s	 *
 	 * @return A String with the name of the page to display.
 	 */
 	@RequestMapping(value="supprimerCategorie", method=RequestMethod.POST)
-	public String soumettreSupprCategorie(ModelMap modele, @ModelAttribute("categorieSupprimee") Categorie categorie){
+	public String soumettreSupprCategorie(ModelMap modele, @Valid @ModelAttribute("categorieSupprimee") Categorie categorie, BindingResult br){
+		System.out.println("Catégorie à supprimer : "+categorie);
+		if(br.hasErrors()){
+			System.out.println("oh noes! D:");
+			return "supprCategorie";
+		}
 		categorieService.deleteCategorie(categorie);
 		List<Produit> listeProduit = produitService.getAllProduits();
 		modele.addAttribute("listeProduits", listeProduit);

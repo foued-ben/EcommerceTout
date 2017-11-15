@@ -54,11 +54,9 @@ public class Produit implements Serializable {
 	@NotEmpty(message="Veuillez entrer la description du produit")
 	@Column(name="description_pr")
 	private String description;
-	@Min(value=0, message="Veuillez entrer un prix positif.")
 	@Column(name="prix_pr")
 	private double prix;
 	@Column(name="quantite_pr")
-	@Min(value=0, message="Veuillez entrer une quantité positive.")
 	private int quantite;
 	@Lob
 	private byte[] image;
