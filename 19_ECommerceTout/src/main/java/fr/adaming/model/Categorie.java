@@ -12,6 +12,20 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+/**
+ * 
+ * Class Categorie has the following attributes : 
+ * <ul>
+ * <li> id (int)
+ * <li> nomCategorie (String)
+ * <li> description (String)
+ * <li> listeProduits (List Produit)
+ * </ul>
+ * 
+ * 
+ *
+ * 
+ */
 
 @Entity
 @Table(name="categories")

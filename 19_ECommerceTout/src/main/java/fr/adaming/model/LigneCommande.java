@@ -13,6 +13,23 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
+/**
+ * 
+ * Class LigneCommande has the following attributes : 
+ * <ul>
+ * <li> id (int)
+ * <li> quantite (int)
+ * <li> prix (double)
+ * <li> commande (Commande)
+ * <li> produit (Produit)
+ * <li> total (double)
+ * </ul>
+ * 
+ * 
+ */
+
+
+
 @Entity
 @Table(name="ligneCommandes")
 public class LigneCommande implements Serializable {

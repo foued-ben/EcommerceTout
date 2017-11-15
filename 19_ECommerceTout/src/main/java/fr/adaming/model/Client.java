@@ -1,3 +1,6 @@
+
+
+
 package fr.adaming.model;
 
 import java.io.Serializable;
@@ -10,6 +13,27 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+/**
+ * 
+ *
+ * Class Client has the following attributes : 
+ * <ul>
+ * <li> id (int)
+ * <li> nom (String)
+ * <li> prenom (String)
+ * <li> adresse (String)
+ * <li> email (String)
+ * <li> telephone(String),
+ * <li> listeCommandes (List Commande)
+ * </ul>
+ * 
+ * 
+ *  
+ * 
+ */
+ 
+
 
 @Entity
 @Table(name="clients")

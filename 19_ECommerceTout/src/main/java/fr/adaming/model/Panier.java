@@ -3,6 +3,20 @@ package fr.adaming.model;
 import java.io.Serializable;
 import java.util.List;
 
+/**
+ * 
+ * Class Categorie has the following attributes : 
+ * <ul>
+ * <li> listeLignesCommande (List LigneCommande)
+ * <li> total (double)
+ * </ul>
+ * 
+ * 
+ *
+ * 
+ */
+
+
 public class Panier implements Serializable {
 	private static final long serialVersionUID = 1L;
 	

@@ -8,6 +8,23 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+/**
+ * 
+ *
+ * Class Client has the following attributes : 
+ * <ul>
+ * <li> id (int)
+ * <li> email (String)
+ * <li> mdp (String)
+ * </ul>
+ * 
+ * 
+ *  
+ * 
+ */
+ 
+
+
 @Entity
 @Table(name="admins")
 public class Admin implements Serializable {

@@ -14,6 +14,27 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+
+/**
+ * 
+ * Class Categorie has the following attributes : 
+ * <ul>
+ * <li> id (int)
+ * <li> designation (String)
+ * <li> description (String)
+ * <li> prix (double)
+ * <li> quantite (int)
+ * <li> image (byte[])
+ * <li> categorie (Categorie)
+ * <li> listeLigneCommande (List LigneCommande)
+ * </ul>
+ * 
+ * 
+ *
+ * 
+ */
+
+
 @Entity
 @Table(name="produits")
 public class Produit implements Serializable {

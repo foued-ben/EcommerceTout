@@ -15,6 +15,21 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+
+/**
+ * 
+ * Class Commande has the following attributes : 
+ * <ul>
+ * <li> id (int)
+ * <li> date (Date)
+ * <li> client (Client)
+ * <li> listeLigneCommande (List LigneCommande)
+ * </ul>
+ * 
+ * 
+ */
+
+
 @Entity
 @Table(name="commandes")
 public class Commande implements Serializable {
