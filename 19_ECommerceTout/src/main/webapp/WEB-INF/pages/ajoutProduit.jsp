@@ -7,10 +7,52 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Ajout de produit</title>
+<link href="<c:url value="/resources/css/bootstrap.css"></c:url>"
+	rel="stylesheet" />
+<script type="text/javascript" src="<c:url value="/resources/js/jquery-3.2.1.js"></c:url>"></script>
+<script type="text/javascript" src="<c:url value="/resources/js/bootstrap.js"></c:url>"></script>
 </head>
 <body>
 
 
+<h2>Ajout d'un produit</h2>
+
+
+<form:form class="form-horizontal" method="POST"
+		action="ajouterProduit" modelAttribute="produitAjoute">
+		<div class="form-group">
+			<form:label path="designation" class="col-sm-2 control-label">Designation</form:label>
+			<div class="col-sm-4">
+				<form:input path="designation" />
+				<form:errors path="designation" />
+			</div>
+		</div>
+		<div class="form-group">
+			<form:label path="description" class="col-sm-2 control-label">Description</form:label>
+			<div class="col-sm-4">
+				<form:input path="description" />
+				<form:errors path="description" />
+			</div>
+		</div>
+		<div class="form-group">
+			<form:label path="prix" class="col-sm-2 control-label">Prix</form:label>
+			<div class="col-sm-4">
+				<form:input path="prix" />
+				<form:errors path="prix" />
+			</div>
+		</div>
+			<div class="form-group">
+			<form:label path="quantite" class="col-sm-2 control-label">Quantité</form:label>
+			<div class="col-sm-4">
+				<form:input path="quantite" />
+				<form:errors path="quantite" />
+			</div>
+		</div>
+		<div class="col-sm-offset-2 col-sm-8">
+			<input type="submit" value="Ajouter le produit" class="btn btn-info" />
+		</div>
+</form:form>
+<p style="color: red">${message}</p>
 
 </body>
 </html>
