@@ -2,11 +2,14 @@ package fr.adaming.controllers;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -55,8 +58,11 @@ public class CategorieController {
 	 */
 	@RequestMapping(value = "ajouterCategorie", method = RequestMethod.POST)
 	public String soumettreAjoutCategorie(Model modele,
-			@ModelAttribute("categorieAjoutee") Categorie categorie,
-			RedirectAttributes redirectAttributes) {
+			@Valid @ModelAttribute("categorieAjoutee") Categorie categorie,
+			RedirectAttributes redirectAttributes, BindingResult br) {
+		if(br.hasErrors()){
+			return "ajoutCategorie";
+		}
 		Categorie caOut = categorieService.addCategorie(categorie);
 		if (caOut != null) {
 			// TODO : updater la liste de catégorie pour si on veut un menu

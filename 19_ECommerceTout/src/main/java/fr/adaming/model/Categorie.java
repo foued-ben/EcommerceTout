@@ -12,6 +12,9 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.NotEmpty;
+
 /**
  * 
  * Class Categorie has the following attributes : 
@@ -37,8 +40,10 @@ public class Categorie implements Serializable {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="id_ca")
 	private long id;
+	@NotEmpty(message="Veuillez entrer le nom de la catégorie.")
 	@Column(name="nomCategorie_ca")
 	private String nomCategorie;
+	@Length(min=1, max=50, message="Veuillez entrer une description de catégorie d'une longueur entre 1 et 50.")
 	@Column(name="description_ca")
 	private String description;
 	@OneToMany(mappedBy="categorie", cascade=CascadeType.REMOVE)
