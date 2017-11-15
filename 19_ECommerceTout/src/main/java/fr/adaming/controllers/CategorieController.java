@@ -31,7 +31,8 @@ public class CategorieController {
 	 * Displays the page which adds categories.
 	 * 
 	 * @param modele
-	 * 			A Model object containing the category to be added. 
+	 * 			A Model object meant to contain the category to be added. 
+	 * 
 	 * @return A String with the name of the page to display, ajoutCategorie.jsp, without its extension
 	 */
 	@RequestMapping(value = "ajout", method = RequestMethod.GET)
@@ -40,6 +41,18 @@ public class CategorieController {
 		return "ajoutCategorie";
 	}
 
+	/**
+	 * Adds a category before redirecting to the home page. If an error occurs, the page stays the same and an error message is displayed.
+	 * 
+	 * @param modele
+	 * 			A Model object containing the category to be added.
+	 * @param categorie
+	 * 			The Categorie object with the values to be added, obtained through a form.
+	 * @param redirectAttributes
+	 * 			A RedirectAttributes object meant to contain a message error. 
+	 *  
+	 * @return A String with the name of the page to display, accueil.jsp, without its extension.
+	 */
 	@RequestMapping(value = "ajouterCategorie", method = RequestMethod.POST)
 	public String soumettreAjoutCategorie(Model modele,
 			@ModelAttribute("categorieAjoutee") Categorie categorie,
@@ -70,6 +83,18 @@ public class CategorieController {
 				new Categorie());
 	}
 	
+	/**
+	 * Updates a category before redirecting to the home page. If an error occurs, the page stays the same and an error message is displayed.
+	 * 
+	 * @param modele
+	 * 			A Model object containing the category to be updated.
+	 * @param categorie
+	 * 			The Categorie object with the updated values, obtained through a form.
+	 * @param redirectAttributes
+	 * 			A RedirectAttributes object. 
+	 *  
+	 * @return A String with the name of the page to display.
+	 */
 	@RequestMapping(value="modifierCategorie", method=RequestMethod.POST)
 	public String soumettreModifCategorie(Model modele,
 			@ModelAttribute("categorieModifiee") Categorie categorie,
@@ -88,14 +113,31 @@ public class CategorieController {
 		}
 	}
 
+	/**
+	 * Displays the page which deletes categories.
+	 * 
+	 * @param modele
+	 * 			A Model object containing the category to be deleted. 
+	 * @return A String with the name of the page to display, supprCategorie.jsp, without its extension
+	 */
 	@RequestMapping(value = "suppr", method = RequestMethod.GET)
 	public String afficheSuppr(ModelMap modele) {
 		modele.addAttribute("categorieSupprimee", new Categorie());
 		return "supprCategorie";
 	}
 	
+	/**
+	 * Deletes a category before redirecting to the home page.
+	 * 
+	 * @param modele
+	 * 			A ModelMap object containing the category to be updated.
+	 * @param categorie
+	 * 			The Categorie object with the id of the categorie to delete, obtained through a form.
+s	 *  
+	 * @return A String with the name of the page to display.
+	 */
 	@RequestMapping(value="supprimerCategorie", method=RequestMethod.POST)
-	public String soumettreSupprCategorie(ModelMap modele, @ModelAttribute("categorieSupprimee") Categorie categorie, RedirectAttributes redirectAttributes){
+	public String soumettreSupprCategorie(ModelMap modele, @ModelAttribute("categorieSupprimee") Categorie categorie){
 		categorieService.deleteCategorie(categorie);
 		List<Produit> listeProduit = produitService.getAllProduits();
 		modele.addAttribute("listeProduits", listeProduit);
