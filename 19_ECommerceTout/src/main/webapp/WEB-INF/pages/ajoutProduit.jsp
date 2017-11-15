@@ -41,6 +41,13 @@
 				<form:errors path="prix" />
 			</div>
 		</div>
+			<div class="form-group">
+			<form:label path="quantite" class="col-sm-2 control-label">Quantité</form:label>
+			<div class="col-sm-4">
+				<form:input path="quantite" />
+				<form:errors path="quantite" />
+			</div>
+		</div>
 		<div class="col-sm-offset-2 col-sm-8">
 			<input type="submit" value="Ajouter le produit" class="btn btn-info" />
 		</div>

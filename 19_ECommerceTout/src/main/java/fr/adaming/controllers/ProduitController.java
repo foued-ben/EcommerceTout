@@ -55,6 +55,7 @@ public class ProduitController {
 	@RequestMapping(value = "ajouterProduit", method = RequestMethod.POST)
 	public String soumettreAjoutProduit (Model model, @ModelAttribute("produitAjoute") Produit produit, @ModelAttribute("categorieProd") Categorie categorie, RedirectAttributes ra){
 		Produit p_out = produitService.addProduit(produit, categorie); 
+		System.out.println(p_out);
 		if (p_out != null) {
 			List<Produit> listeProduits = produitService.getAllProduits() ; 
 			model.addAttribute("listeProduits", listeProduits);
