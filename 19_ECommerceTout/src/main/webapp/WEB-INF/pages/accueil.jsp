@@ -34,6 +34,7 @@
   		<li role="presentation"><a href="${pageContext.request.contextPath}/categorie/suppr">Suppression</a></li>
   	</ul>
   </li>
+  <li role="presentation"><a href="${pageContext.request.contextPath}/client/recherche">Recherche</a></li>
 </ul>
 </nav>
 

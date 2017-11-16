@@ -66,4 +66,10 @@ public class ProduitServiceImpl implements IProduitService {
 		}
 		produitDao.deleteProduit(p);
 	}
+
+
+	@Override
+	public List<Produit> getProduitsByMot(String mot) {
+		return produitDao.getProduitsByMot(mot);
+	}
 }

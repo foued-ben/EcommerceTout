@@ -16,7 +16,7 @@
 </head>
 <body>
 
-	<h3>Resultat de la recherche</h3>
+
 	<table class="table table-striped">
   <tr>
   	<th>ID</th>

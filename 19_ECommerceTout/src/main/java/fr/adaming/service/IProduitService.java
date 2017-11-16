@@ -51,4 +51,12 @@ public interface IProduitService {
 	 * 			The product to delete
 	 */
 	public void deleteProduit(Produit p);
+	/**
+	 * to search a product by a key word
+	 * 
+	 * @param mot
+	 * 			the key word 
+	 * @return The list of all products with the word "mot" in their name
+	 */
+	public List<Produit> getProduitsByMot(String mot) ; 
 }

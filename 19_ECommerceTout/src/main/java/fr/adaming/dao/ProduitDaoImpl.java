@@ -75,4 +75,24 @@ public class ProduitDaoImpl implements IProduitDao{
 		p = (Produit) session.get(Produit.class, p.getId());
 		session.delete(p);
 	}
+	
+	@Override
+	public List<Produit> getProduitsByMot(String mot) {
+		Session s = sessionFactory.getCurrentSession() ; 
+		String req = "SELECT prod FROM Produit prod WHERE prod.description LIKE :pDescription";
+		Query query = s.createQuery(req) ; 
+
+		// Production du paramètre
+		StringBuilder intitule = new StringBuilder();
+		intitule.append('%');
+		intitule.append(mot);
+		intitule.append('%');
+		String intituleParam = intitule.toString();
+		//Passage du paramètre
+		query.setParameter("pDescription", intituleParam);
+		@SuppressWarnings("unchecked")
+		List<Produit> liste = query.list();
+		
+		return liste;
+	}
 }

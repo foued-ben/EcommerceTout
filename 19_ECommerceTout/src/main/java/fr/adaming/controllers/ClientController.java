@@ -10,6 +10,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import fr.adaming.model.Categorie;
@@ -23,6 +24,8 @@ import fr.adaming.service.IProduitService;
 public class ClientController {
 	private List<Produit> listeProduit;
 
+	private String mot ; 
+	
 	@Autowired
 	private IProduitService produitService;
 
@@ -45,6 +48,16 @@ public class ClientController {
 		this.categorieService = categorieService;
 	}
 	
+	
+	
+	public String getMot() {
+		return mot;
+	}
+
+	public void setMot(String mot) {
+		this.mot = mot;
+	}
+
 	@RequestMapping(value = "accueil", method = RequestMethod.GET)
 	public String afficheAccueil(ModelMap modele) {
 		listeProduit = produitService.getAllProduits();
@@ -81,5 +94,17 @@ public class ClientController {
 		}
 	}
 	
+	@RequestMapping(value = "rechercheProduitMot", method = RequestMethod.POST)
+	public String soumettreRechProduit(Model model, @RequestParam("motRech") String motRech, RedirectAttributes ra) {
+		List<Produit> listeProduits = produitService.getProduitsByMot(motRech);
+
+		if (listeProduits != null) {
+			model.addAttribute("listeProduits", listeProduits);
+			return "produitByMot";
+		} else {
+			ra.addFlashAttribute("message", "La recherche n'a pas abouti");
+			return "redirect:recherche";
+		}
+	}
 	
 }
