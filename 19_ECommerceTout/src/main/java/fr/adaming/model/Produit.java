@@ -48,10 +48,10 @@ public class Produit implements Serializable {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="id_pr")
 	private long id;
-	@NotEmpty(message="Veuillez entrer le nom du produit")
+	//@NotEmpty(message="Veuillez entrer le nom du produit")
 	@Column(name="designation_pr")
 	private String designation;
-	@NotEmpty(message="Veuillez entrer la description du produit")
+	//@NotEmpty(message="Veuillez entrer la description du produit")
 	@Column(name="description_pr")
 	private String description;
 	@Column(name="prix_pr")

@@ -1,5 +1,6 @@
 package fr.adaming.controllers;
 
+import java.io.IOException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +11,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import fr.adaming.model.Categorie;
@@ -19,7 +21,7 @@ import fr.adaming.service.IProduitService;
 
 @Controller
 @Scope("session")
-@RequestMapping("produit")
+@RequestMapping("/produit")
 public class ProduitController {
 	private List<Produit> listeProduit;
 
@@ -64,18 +66,26 @@ public class ProduitController {
 	 */
 	@RequestMapping(value = "ajout", method = RequestMethod.GET)
 	public String afficheAjout(Model model) {
-		model.addAttribute("produitAjoute", new Produit());
+		model.addAttribute("produit", new Produit());
 		List<Categorie> listeCategories = categorieService.getAllCategories();
 		model.addAttribute("listeCategories", listeCategories);
 		model.addAttribute("categorieProd", new Categorie());
 		return "ajoutProduit";
 	}
 
-	@RequestMapping(value = "ajouterProduit", method = RequestMethod.POST)
-	public String soumettreAjoutProduit(Model model, @ModelAttribute("produitAjoute") Produit produit,
-			@ModelAttribute("categorieProd") Categorie categorie, RedirectAttributes ra) {
+	@RequestMapping(value = "/ajouterProduit", method = RequestMethod.POST)
+	public String soumettreAjoutProduit(Model model,  Produit produit, MultipartFile file, RedirectAttributes ra) {
+		System.out.println("Le produit avant ajout est "+produit);
+		if(file!=null){
+			try {
+				produit.setImage(file.getBytes());
+			} catch (IOException e) {
+				System.out.println("Erreur lors de l'ajout d'image.");
+				e.printStackTrace();
+			}
+		}
 		Produit p_out = produitService.addProduit(produit);
-		System.out.println(p_out);
+		System.out.println("Le produit après ajout est "+p_out);
 
 		if (p_out != null) {
 			List<Produit> listeProduits = produitService.getAllProduits();
