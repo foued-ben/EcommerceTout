@@ -13,6 +13,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.Digits;
+import javax.validation.constraints.Pattern;
+
+import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.NotEmpty;
 
 /**
  * 
@@ -46,14 +51,19 @@ public class Client implements Serializable {
 	@Column(name="id_cl")
 	private long id;
 	@Column(name="nom_cl")
+	@NotEmpty(message="Veuillez entrer votre nom.")
 	private String nom;
 	@Column(name="prenom_cl")
+	@NotEmpty(message="Veuillez entrer votre prenom")
 	private String prenom;
 	@Column(name="adresse_cl")
+	@Length(min=1, max=200, message="Veuillez renseigner une adresse comprenant entre 1 et 200 caractères")
 	private String adresse;
 	@Column(name="email_cl")
+	@Pattern(regexp="[a-zA-Z_0-9]+@[a-zA-Z_0-9]+", message="Votre adresse mail n'est pas valide")
 	private String email;
 	@Column(name="telephone_cl")
+	@Pattern(regexp="[0-9]{10}", message="Votre numéro de téléphone doit contenir 10 chiffres")
 	private String telephone;
 	@OneToMany(mappedBy="client")
 	private List<Commande> listeCommandes;

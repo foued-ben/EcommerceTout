@@ -19,6 +19,7 @@
   		<param-name>contextConfigLocation</param-name>
   		<param-value>/WEB-INF/mvc-context.xml</param-value>
   	</init-param>
+
   </servlet>
   
   <servlet-mapping>
