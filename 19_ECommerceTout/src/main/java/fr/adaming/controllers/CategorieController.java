@@ -116,7 +116,7 @@ public class CategorieController {
 	@RequestMapping(value = "modifierCategorie", method = RequestMethod.POST)
 	public String soumettreModifCategorie(Model modele,
 			@Valid @ModelAttribute("categorieModifiee") Categorie categorie,
-			BindingResult br, RedirectAttributes redirectAttributes, @RequestParam listeCategories) {
+			BindingResult br, RedirectAttributes redirectAttributes, @RequestParam Categorie categorieID) {
 		if (br.hasErrors()) {
 			return "ajoutCategorie";
 		}
