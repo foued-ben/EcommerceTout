@@ -37,6 +37,16 @@ public class ProduitController {
 		this.produitService = produitService;
 	}
 
+	
+	
+	public List<Produit> getListeProduit() {
+		return listeProduit;
+	}
+
+	public void setListeProduit(List<Produit> listeProduit) {
+		this.listeProduit = listeProduit;
+	}
+
 	@RequestMapping(value = "accueil", method = RequestMethod.GET)
 	public String afficheAccueil(ModelMap modele) {
 		listeProduit = produitService.getAllProduits();
