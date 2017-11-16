@@ -33,21 +33,17 @@ public interface IProduitService {
 	 * 
 	 * @param p
 	 * 			The product to add
-	 * @param c
-	 * 			the category in which the product is added
 	 * @return the product added
 	 */
-	public Produit addProduit(Produit p, Categorie c);
+	public Produit addProduit(Produit p);
 	/**
 	 * to update a product by calling the dao method of the same name
 	 * 
 	 * @param p
 	 * 			The product to update
-	 * @param c
-	 * 			the category in which the product is updated
 	 * @return the product updated
 	 */
-	public Produit updateProduit(Produit p, Categorie c);
+	public Produit updateProduit(Produit p);
 	/**
 	 * to delete a product by calling the dao method of the same name
 	 * 

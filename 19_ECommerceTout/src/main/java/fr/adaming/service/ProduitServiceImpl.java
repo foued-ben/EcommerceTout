@@ -41,22 +41,20 @@ public class ProduitServiceImpl implements IProduitService {
 	}
 
 	@Override
-	public Produit addProduit(Produit p, Categorie c) {
-		if (p==null || c==null) {
+	public Produit addProduit(Produit p) {
+		if (p==null) {
 			System.out.println("Erreur lors de l'ajout du produit");
 			return null;
 		}
-		p.setCategorie(c);
 		return produitDao.addProduit(p);
 	}
 
 	@Override
-	public Produit updateProduit(Produit p, Categorie c) {
+	public Produit updateProduit(Produit p) {
 		if (p==null) {
 			System.out.println("Erreur lors de la modification du produit");
 			return null;
 		}
-		p.setCategorie(c);
 		return produitDao.updateProduit(p);
 	}
 
