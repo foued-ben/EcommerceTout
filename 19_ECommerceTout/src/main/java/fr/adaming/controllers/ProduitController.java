@@ -11,6 +11,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -74,16 +75,19 @@ public class ProduitController {
 	}
 
 	@RequestMapping(value = "/ajouterProduit", method = RequestMethod.POST)
-	public String soumettreAjoutProduit(Model model,  Produit produit, MultipartFile file, RedirectAttributes ra) {
+	public String soumettreAjoutProduit(Model model,  Produit produit, @RequestParam("file") MultipartFile file, RedirectAttributes ra) {
 		System.out.println("Le produit avant ajout est "+produit);
-		if(file!=null){
-			try {
-				produit.setImage(file.getBytes());
-			} catch (IOException e) {
-				System.out.println("Erreur lors de l'ajout d'image.");
-				e.printStackTrace();
-			}
+		if(file==null){
+			System.out.println("Mais euh");
 		}
+//		if(file!=null){
+//			try {
+//				produit.setImage(file.getBytes());
+//			} catch (IOException e) {
+//				System.out.println("Erreur lors de l'ajout d'image.");
+//				e.printStackTrace();
+//			}
+//		}
 		Produit p_out = produitService.addProduit(produit);
 		System.out.println("Le produit après ajout est "+p_out);
 
