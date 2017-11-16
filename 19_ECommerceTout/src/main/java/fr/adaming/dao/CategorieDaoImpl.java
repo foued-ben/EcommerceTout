@@ -47,9 +47,11 @@ public class CategorieDaoImpl implements ICategorieDao {
 	public Categorie updateCategorie(Categorie c) {
 		Session session = sessionFactory.getCurrentSession();
 		Categorie cOut = (Categorie) session.get(c.getClass(), c.getId());
-		cOut.setNomCategorie(c.getNomCategorie());
-		cOut.setDescription(c.getDescription());
-		session.saveOrUpdate(cOut);
+		if (cOut != null) {
+			cOut.setNomCategorie(c.getNomCategorie());
+			cOut.setDescription(c.getDescription());
+			session.saveOrUpdate(cOut);
+		}
 		return cOut;
 	}
 
