@@ -116,11 +116,11 @@ public class CategorieController {
 	@RequestMapping(value = "modifierCategorie", method = RequestMethod.POST)
 	public String soumettreModifCategorie(Model modele,
 			@Valid @ModelAttribute("categorieModifiee") Categorie categorie,
-			BindingResult br, RedirectAttributes redirectAttributes, @RequestParam Categorie categorieID) {
+			BindingResult br, RedirectAttributes redirectAttributes) {
 		if (br.hasErrors()) {
 			return "ajoutCategorie";
 		}
-		System.out.println("Catégorie modifiée : "+categorie);
+		
 		Categorie caOut = categorieService.updateCategorie(categorie);
 		if (caOut != null) {
 			// TODO : updater la liste de catégorie pour si on veut un menu
@@ -145,6 +145,8 @@ public class CategorieController {
 	 */
 	@RequestMapping(value = "suppr", method = RequestMethod.GET)
 	public String afficheSuppr(ModelMap modele) {
+		List<Categorie> listeCategorie=categorieService.getAllCategories();
+		modele.addAttribute("listeCategories", listeCategorie);
 		modele.addAttribute("categorieSupprimee", new Categorie());
 		return "supprCategorie";
 	}
@@ -161,13 +163,7 @@ public class CategorieController {
 	 */
 	@RequestMapping(value = "supprimerCategorie", method = RequestMethod.POST)
 	public String soumettreSupprCategorie(ModelMap modele,
-			@Valid @ModelAttribute("categorieSupprimee") Categorie categorie,
-			BindingResult br) {
-		System.out.println("Catégorie à supprimer : " + categorie);
-		if (br.hasErrors()) {
-			System.out.println("oh noes! D:");
-			return "supprCategorie";
-		}
+			@ModelAttribute("categorieSupprimee") Categorie categorie) {
 		categorieService.deleteCategorie(categorie);
 		List<Produit> listeProduit = produitService.getAllProduits();
 		modele.addAttribute("listeProduits", listeProduit);

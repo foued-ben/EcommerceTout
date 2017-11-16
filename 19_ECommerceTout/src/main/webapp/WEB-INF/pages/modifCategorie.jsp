@@ -23,10 +23,9 @@
 		<div class="form-group">
 			<form:label path="id" class="col-sm-2 control-label">Catégorie à modifier</form:label>
 			<div class="col-sm-4">
-				<form:select cssClass="form-control" path="categorieModifiee.id" >
-					<c:forEach var="cat" items="${listeCategories}">
-						<form:option value="${cat.nomCategorie}"></form:option>
-					</c:forEach>
+				<form:select cssClass="form-group" path="id" >
+					<form:options items="${listeCategories}" itemLabel="nomCategorie" itemValue="id"></form:options>
+					
 				</form:select>
 			</div>
 			<form:errors path="id" />

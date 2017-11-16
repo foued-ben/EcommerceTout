@@ -20,11 +20,15 @@
 <form:form class="form-horizontal" method="POST"
 		action="supprimerCategorie" modelAttribute="categorieSupprimee">
 		<div class="form-group">
-			<form:label path="id" class="col-sm-2 control-label">ID</form:label>
+			<form:label path="id" class="col-sm-2 control-label">Catégorie à modifier</form:label>
 			<div class="col-sm-4">
-				<form:input path="id" />
-				<form:errors path="id" />
+				<form:select cssClass="form-group" path="id" >
+					<form:options items="${listeCategories}" itemLabel="nomCategorie" itemValue="id"></form:options>
+					
+				</form:select>
 			</div>
+			<form:errors path="id" />
+
 		</div>
 		
 		
