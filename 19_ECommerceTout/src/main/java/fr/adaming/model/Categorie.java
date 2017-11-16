@@ -41,7 +41,6 @@ public class Categorie implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="id_ca")
-	@Range(min=0, message="Veuillez entrer un ID positif.")
 	private long id;
 	@NotEmpty(message="Veuillez entrer le nom de la catégorie.")
 	@Column(name="nomCategorie_ca")
