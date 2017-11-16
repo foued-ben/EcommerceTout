@@ -123,6 +123,6 @@ public class ProduitController {
 		List<Produit> listeProduits = produitService.getAllProduits();
 		model.addAttribute("listeProduits", listeProduits);
 		return "accueil";
-
+ 
 	}
 }
