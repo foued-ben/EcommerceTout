@@ -55,10 +55,10 @@
 
 <br />
 
-		<form:label path="" class="col-sm-2 control-label">Image</form:label>
+		<form:label path="image" class="col-sm-2 control-label">Image</form:label>
 		<div class="col-sm-4">
 			<input type="file" name="file" />
-			<form:errors path="" />
+			<form:errors path="image" />
 		</div>
 <br />
 		<form:label path="categorie.id" class="col-sm-2 control-label">Catégorie</form:label>

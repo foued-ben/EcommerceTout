@@ -80,14 +80,14 @@ public class ProduitController {
 		if(file==null){
 			System.out.println("Mais euh");
 		}
-//		if(file!=null){
-//			try {
-//				produit.setImage(file.getBytes());
-//			} catch (IOException e) {
-//				System.out.println("Erreur lors de l'ajout d'image.");
-//				e.printStackTrace();
-//			}
-//		}
+		if(file!=null){
+			try {
+				produit.setImage(file.getBytes());
+			} catch (IOException e) {
+				System.out.println("Erreur lors de l'ajout d'image.");
+				e.printStackTrace();
+			}
+		}
 		Produit p_out = produitService.addProduit(produit);
 		System.out.println("Le produit après ajout est "+p_out);
 
