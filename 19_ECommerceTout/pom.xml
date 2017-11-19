@@ -207,6 +207,15 @@
 		</dependency>
 
 
+		<!-- Création de PDF -->
+		<!-- https://mvnrepository.com/artifact/com.itextpdf/itextpdf -->
+		<dependency>
+			<groupId>com.itextpdf</groupId>
+			<artifactId>itextpdf</artifactId>
+			<version>5.5.3</version>
+		</dependency>
+
+
 	</dependencies>
 	<!-- Forcer Maven à compiler avec le compilateur java 8 -->
 
