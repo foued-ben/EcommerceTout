@@ -37,7 +37,7 @@
   <li role="presentation"><a href="${pageContext.request.contextPath}/client/recherche">Recherche</a></li>
 </ul>
 </nav>
-
+<a href="${pageContext.request.contextPath}/mail">Mail</a>
 <table class="table table-striped">
   <tr>
   	<th>ID</th>
@@ -53,7 +53,7 @@
   		<td>${produit.id}</td>
   		<td>${produit.designation}</td>
   		<td>${produit.description}</td>
-  		<td>${pageContext.request.contextPath}/produit/photo/id/${produit.id}</td>
+  		<td><img src="${pageContext.request.contextPath}/produit/photo?id=${produit.id}"/></td>
   		<td>${produit.prix}</td>
   		<td>${produit.quantite}</td>
   		<td>${produit.categorie.nomCategorie}</td>
