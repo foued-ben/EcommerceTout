@@ -15,8 +15,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import fr.adaming.model.Client;
+import fr.adaming.model.LigneCommande;
 import fr.adaming.model.Produit;
 import fr.adaming.service.IClientService;
+import fr.adaming.service.ILigneCommandeService;
 import fr.adaming.service.IProduitService;
 
 @Controller
@@ -29,6 +31,9 @@ public class PanierController {
 
 	@Autowired
 	private IProduitService produitService;
+	
+	@Autowired
+	private ILigneCommandeService lComService;
 
 	/**
 	 * Displays the page with the basket and the log in and sign in client forms.
@@ -42,7 +47,10 @@ public class PanierController {
 	@RequestMapping(value = "affiche", method = RequestMethod.GET)
 	public String afficheInscriptionForm(Model modele) {
 
+		List<LigneCommande> listeCourses = lComService.getAllLigneCommandes();
+		
 		modele.addAttribute("nouveauClient", new Client());
+		modele.addAttribute("recapPanier", listeCourses);
 
 		return "panier";
 

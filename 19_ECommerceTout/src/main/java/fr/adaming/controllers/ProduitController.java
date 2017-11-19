@@ -1,23 +1,31 @@
 package fr.adaming.controllers;
 
+<<<<<<< HEAD
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+=======
+import java.io.ByteArrayInputStream;
+>>>>>>> branch 'master' of https://github.com/foued-ben/EcommerceTout.git
 import java.io.IOException;
 import java.util.List;
 
 
 import javax.validation.Valid;
 
+import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -92,14 +100,14 @@ public class ProduitController {
 		if(file==null){
 			System.out.println("Mais euh");
 		}
-//		if(file!=null){
-//			try {
-//				produit.setImage(file.getBytes());
-//			} catch (IOException e) {
-//				System.out.println("Erreur lors de l'ajout d'image.");
-//				e.printStackTrace();
-//			}
-//		}
+		if(file!=null){
+			try {
+				produit.setImage(file.getBytes());
+			} catch (IOException e) {
+				System.out.println("Erreur lors de l'ajout d'image.");
+				e.printStackTrace();
+			}
+		}
 		Produit p_out = produitService.addProduit(produit);
 		System.out.println("Le produit après ajout est "+p_out);
 
@@ -169,6 +177,7 @@ public class ProduitController {
  
 	}
 	
+<<<<<<< HEAD
 	@RequestMapping(value = "pdf", method = RequestMethod.GET)
 	public void ecrirePDF(){
 		//On récupère les informations sur les produits depuis la session.
@@ -221,4 +230,18 @@ public class ProduitController {
 	
 	
 	
+=======
+
+	@RequestMapping(value="/photo")
+	@ResponseBody
+	public byte[] affichePhoto(long id) throws IOException {
+		System.out.println("J'affiche le produit "+id);
+		Produit p=produitService.getProduitById(id);
+		if(p.getImage()!=null){
+			return IOUtils.toByteArray(new ByteArrayInputStream(p.getImage()));
+		} else{
+			return new byte[0];
+		}
+	}
+>>>>>>> branch 'master' of https://github.com/foued-ben/EcommerceTout.git
 }

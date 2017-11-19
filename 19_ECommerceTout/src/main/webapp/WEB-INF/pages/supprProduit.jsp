@@ -16,7 +16,6 @@
 </head>
 <body>
 
-
 	<h2>Suppression d'un produit</h2>
 
 
@@ -25,7 +24,7 @@
 		<div class="form-group">
 			<form:label path="id" class="col-sm-2 control-label">Id</form:label>
 			<div class="col-sm-4">
-				<form:input path="id" />
+				<form:input path="id" class="form-control"/>
 				<form:errors path="id" />
 			</div>
 		</div>
@@ -33,6 +32,7 @@
 			<input type="submit" value="Supprimer le produit" class="btn btn-danger" />
 		</div>
 	</form:form>
+	
 	<p style="color: red">${message}</p>
 
 </body>

@@ -25,36 +25,61 @@
 		<div class="form-group">
 			<form:label path="id" class="col-sm-2 control-label">Id</form:label>
 			<div class="col-sm-4">
+<<<<<<< HEAD
 				<form:input path="id" />
 				<form:errors path="id" cssStyle="color:red"/>
+=======
+				<form:input path="id" class="form-control"/>
+				<form:errors path="id" />
+>>>>>>> branch 'master' of https://github.com/foued-ben/EcommerceTout.git
 			</div>
 		</div>
 		<div class="form-group">
 			<form:label path="designation" class="col-sm-2 control-label">Designation</form:label>
 			<div class="col-sm-4">
+<<<<<<< HEAD
 				<form:input path="designation" />
 				<form:errors path="designation" cssStyle="color:red"/>
+=======
+				<form:input path="designation" class="form-control"/>
+				<form:errors path="designation" />
+>>>>>>> branch 'master' of https://github.com/foued-ben/EcommerceTout.git
 			</div>
 		</div>
 		<div class="form-group">
 			<form:label path="description" class="col-sm-2 control-label">Description</form:label>
 			<div class="col-sm-4">
+<<<<<<< HEAD
 				<form:input path="description" />
 				<form:errors path="description" cssStyle="color:red"/>
+=======
+				<form:input path="description" class="form-control"/>
+				<form:errors path="description" />
+>>>>>>> branch 'master' of https://github.com/foued-ben/EcommerceTout.git
 			</div>
 		</div>
 		<div class="form-group">
 			<form:label path="prix" class="col-sm-2 control-label">Prix</form:label>
 			<div class="col-sm-4">
+<<<<<<< HEAD
 				<form:input path="prix" />
 				<form:errors path="prix" cssStyle="color:red"/>
+=======
+				<form:input path="prix" class="form-control"/>
+				<form:errors path="prix" />
+>>>>>>> branch 'master' of https://github.com/foued-ben/EcommerceTout.git
 			</div>
 		</div>
 		<div class="form-group">
 			<form:label path="quantite" class="col-sm-2 control-label">Quantité</form:label>
 			<div class="col-sm-4">
+<<<<<<< HEAD
 				<form:input path="quantite" />
 				<form:errors path="quantite" cssStyle="color:red"/>
+=======
+				<form:input path="quantite" class="form-control"/>
+				<form:errors path="quantite" />
+>>>>>>> branch 'master' of https://github.com/foued-ben/EcommerceTout.git
 			</div>
 		</div>
 
