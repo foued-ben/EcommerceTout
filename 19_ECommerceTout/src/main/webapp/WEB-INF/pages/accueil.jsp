@@ -10,19 +10,23 @@
 <title>Accueil</title>
 <link href="<c:url value="/resources/css/bootstrap.css"></c:url>"
 	rel="stylesheet" />
-<link href="<c:url value="/resources/css/style.css"></c:url>"
-	rel="stylesheet" />
+<%-- <link href="<c:url value="/resources/css/style.css"></c:url>" --%>
+<!-- 	rel="stylesheet" /> -->
 <script type="text/javascript"
 	src="<c:url value="/resources/js/jquery-3.2.1.js"></c:url>"></script>
 <script type="text/javascript"
 	src="<c:url value="/resources/js/bootstrap.js"></c:url>"></script>
 </head>
-<body style="background-image :   url(/images/herbe.jpg);">
+<body>
 
 
 	<div class="container">
-		<img width="1350" height="500" src="images/animalerie.jpg" />
+		<img id="im" width="1350" 
+	height="450" src="<c:url value="/resources/animalerie.jpg"></c:url>" />
 	</div>
+	
+	<IMG class="superpose" id="img_1" src="<c:url value="/resources/petshop.png"></c:url>"
+				width="300" height="150" />
 	
 	<!-- todo : copier les scripts quand on copiera la navbar -->
 	<nav class="navbar navbar-inverse"> 
@@ -71,8 +75,7 @@
 	</form:form>
 
 
-	<IMG class="superpose" id="img_1" src="WEB-INF/images/petshop.png"
-				width="200" height="200" />
+	
 
 
 <a href="${pageContext.request.contextPath}/mail">Mail</a>

@@ -14,7 +14,7 @@ img.superposebis {
 }
 #img_1 {
     z-index: 10;
-    left : 860px ; 
+    left : 460px ; 
     bottom: 0px ; 
     top : 300px;
 }
@@ -141,4 +141,18 @@ img.superposebis {
     position: absolute;
     bottom: 20px;
     left: 400px;
+}
+
+
+
+body {
+    background-image: url("resources/herbe.jpg");
+}
+
+
+
+#im{
+	background: url(/images/animalerie.jpg);
+	width="1550" ;
+	height="500" ;
 }

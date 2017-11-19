@@ -79,7 +79,7 @@ public class ProduitDaoImpl implements IProduitDao{
 	@Override
 	public List<Produit> getProduitsByMot(String mot) {
 		Session s = sessionFactory.getCurrentSession() ; 
-		String req = "SELECT prod FROM Produit prod WHERE prod.description LIKE :pDescription";
+		String req = "SELECT prod FROM Produit prod WHERE prod.designation LIKE :pDescription";
 		Query query = s.createQuery(req) ; 
 
 		// Production du paramètre
