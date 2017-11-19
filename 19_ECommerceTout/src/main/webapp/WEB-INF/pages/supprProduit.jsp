@@ -33,6 +33,7 @@
 			<input type="submit" value="Supprimer le produit" class="btn btn-danger" />
 		</div>
 	</form:form>
+	
 	<p style="color: red">${message}</p>
 
 </body>
