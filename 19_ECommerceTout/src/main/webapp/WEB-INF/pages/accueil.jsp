@@ -43,6 +43,7 @@
   	<th>ID</th>
   	<th>Nom</th>
   	<th>Description</th>
+  	<th>Image</th>
   	<th>Prix</th>
   	<th>Quantité</th>
   	<th>Catégorie</th>
@@ -52,6 +53,7 @@
   		<td>${produit.id}</td>
   		<td>${produit.designation}</td>
   		<td>${produit.description}</td>
+  		<td>${pageContext.request.contextPath}/produit/photo/id/${produit.id}</td>
   		<td>${produit.prix}</td>
   		<td>${produit.quantite}</td>
   		<td>${produit.categorie.nomCategorie}</td>
