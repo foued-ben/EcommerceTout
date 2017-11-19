@@ -1,11 +1,8 @@
 package fr.adaming.controllers;
 
-<<<<<<< HEAD
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-=======
 import java.io.ByteArrayInputStream;
->>>>>>> branch 'master' of https://github.com/foued-ben/EcommerceTout.git
 import java.io.IOException;
 import java.util.List;
 
@@ -177,7 +174,6 @@ public class ProduitController {
  
 	}
 	
-<<<<<<< HEAD
 	@RequestMapping(value = "pdf", method = RequestMethod.GET)
 	public void ecrirePDF(){
 		//On récupère les informations sur les produits depuis la session.
@@ -230,7 +226,6 @@ public class ProduitController {
 	
 	
 	
-=======
 
 	@RequestMapping(value="/photo")
 	@ResponseBody
@@ -243,5 +238,4 @@ public class ProduitController {
 			return new byte[0];
 		}
 	}
->>>>>>> branch 'master' of https://github.com/foued-ben/EcommerceTout.git
 }

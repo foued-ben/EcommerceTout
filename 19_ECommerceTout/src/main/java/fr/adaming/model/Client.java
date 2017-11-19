@@ -60,7 +60,7 @@ public class Client implements Serializable {
 	@Length(min=1, max=200, message="Veuillez renseigner une adresse comprenant entre 1 et 200 caractères")
 	private String adresse;
 	@Column(name="email_cl")
-	@Pattern(regexp="[a-zA-Z_0-9]+@[a-zA-Z_0-9]+", message="Votre adresse mail n'est pas valide")
+	@Pattern(regexp="[a-zA-Z_0-9.]+@[a-zA-Z_0-9.]+", message="Votre adresse mail n'est pas valide")
 	private String email;
 	@Column(name="telephone_cl")
 	@Pattern(regexp="[0-9]{10}", message="Votre numéro de téléphone doit contenir 10 chiffres")
