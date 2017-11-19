@@ -16,7 +16,6 @@
 </head>
 <body>
 
-
 	<h2>Suppression d'un produit</h2>
 
 
