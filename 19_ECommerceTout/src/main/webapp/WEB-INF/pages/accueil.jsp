@@ -17,15 +17,15 @@
 <script type="text/javascript"
 	src="<c:url value="/resources/js/bootstrap.js"></c:url>"></script>
 </head>
-<body style="background-image :   url(/images/herbe.jpg);">
+<body style="background-image: url(/images/herbe.jpg);">
 
 
 	<div class="container">
 		<img width="1350" height="500" src="images/animalerie.jpg" />
 	</div>
-	
+
 	<!-- todo : copier les scripts quand on copiera la navbar -->
-	<nav class="navbar navbar-inverse"> 
+	<nav class="navbar navbar-inverse">
 		<ul class="nav nav-pills">
 			<li role="presentation" class="active"><a
 				href="${pageContext.request.contextPath}/produit/accueil">Accueil</a></li>
@@ -61,9 +61,8 @@
 		</ul>
 	</nav>
 
-	<form:form cssClass="form-horizontal" method="GET"
-		action="pdf" modelAttribute="produit"
-		enctype="multipart/form-data">
+	<form:form cssClass="form-horizontal" method="GET" action="pdf"
+		modelAttribute="produit" enctype="multipart/form-data">
 		<div class="col-sm-offset-2 col-sm-8">
 			<input type="submit" value="Génerer le pdf des produits"
 				class="btn btn-danger" />
@@ -72,32 +71,40 @@
 
 
 	<IMG class="superpose" id="img_1" src="WEB-INF/images/petshop.png"
-				width="200" height="200" />
+		width="200" height="200" />
 
 
-<a href="${pageContext.request.contextPath}/mail">Mail</a>
-<table class="table table-striped">
-  <tr>
-  	<th>ID</th>
-  	<th>Nom</th>
-  	<th>Description</th>
-  	<th>Image</th>
-  	<th>Prix</th>
-  	<th>Quantité</th>
-  	<th>Catégorie</th>
-  </tr>
-  <c:forEach var="produit" items="${listeProduits}">
-  	<tr>
-  		<td>${produit.id}</td>
-  		<td>${produit.designation}</td>
-  		<td>${produit.description}</td>
-  		<td><img src="${pageContext.request.contextPath}/produit/photo?id=${produit.id}"/></td>
-  		<td>${produit.prix}</td>
-  		<td>${produit.quantite}</td>
-  		<td>${produit.categorie.nomCategorie}</td>
-  	</tr>
-  </c:forEach>
-</table>
+	<a href="${pageContext.request.contextPath}/mail">Mail</a>
+	<table class="table table-striped">
+		<tr>
+			<th>ID</th>
+			<th>Nom</th>
+			<th>Description</th>
+			<th>Image</th>
+			<th>Prix</th>
+			<th>Quantité</th>
+			<th>Catégorie</th>
+			<th>Ajouter au panier</th>
+		</tr>
+		<c:forEach var="produit" items="${listeProduits}">
+			<tr>
+				<td>${produit.id}</td>
+				<td>${produit.designation}</td>
+				<td>${produit.description}</td>
+				<td><img
+					src="${pageContext.request.contextPath}/produit/photo?id=${produit.id}" /></td>
+				<td>${produit.prix}</td>
+				<td>${produit.quantite}</td>
+				<td>${produit.categorie.nomCategorie}</td>
+				<td><form:form method="POST"
+						action="${pageContext.request.contextPath}/panier/ajoutPanier?idProduit=${produit.id}"
+						modelAttribute="ligne">
+						<form:input path="quantite" />
+						<input type="submit" value="Ajouter" class="btn btn-info" />
+					</form:form></td>
+			</tr>
+		</c:forEach>
+	</table>
 
 
 </body>

@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.util.List;
 
 
+
 import javax.validation.Valid;
 
 import org.apache.commons.io.IOUtils;
@@ -33,6 +34,7 @@ import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
 
 import fr.adaming.model.Categorie;
+import fr.adaming.model.LigneCommande;
 import fr.adaming.model.Produit;
 import fr.adaming.service.ICategorieService;
 import fr.adaming.service.IProduitService;
@@ -67,12 +69,7 @@ public class ProduitController {
 		this.listeProduit = listeProduit;
 	}
 
-	@RequestMapping(value = "accueil", method = RequestMethod.GET)
-	public String afficheAccueil(ModelMap modele) {
-		listeProduit = produitService.getAllProduits();
-		modele.addAttribute("listeProduits", listeProduit);
-		return "accueil";
-	}
+	
 
 	/**
 	 * Displays the page which adds products.
@@ -93,10 +90,6 @@ public class ProduitController {
 
 	@RequestMapping(value = "/ajouterProduit", method = RequestMethod.POST)
 	public String soumettreAjoutProduit(Model model,  Produit produit, @RequestParam("file") MultipartFile file, RedirectAttributes ra) {
-		System.out.println("Le produit avant ajout est "+produit);
-		if(file==null){
-			System.out.println("Mais euh");
-		}
 		if(file!=null){
 			try {
 				produit.setImage(file.getBytes());
@@ -106,7 +99,6 @@ public class ProduitController {
 			}
 		}
 		Produit p_out = produitService.addProduit(produit);
-		System.out.println("Le produit après ajout est "+p_out);
 
 		if (p_out != null) {
 			List<Produit> listeProduits = produitService.getAllProduits();
@@ -230,7 +222,6 @@ public class ProduitController {
 	@RequestMapping(value="/photo")
 	@ResponseBody
 	public byte[] affichePhoto(long id) throws IOException {
-		System.out.println("J'affiche le produit "+id);
 		Produit p=produitService.getProduitById(id);
 		if(p.getImage()!=null){
 			return IOUtils.toByteArray(new ByteArrayInputStream(p.getImage()));
