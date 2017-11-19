@@ -25,35 +25,35 @@
 		<div class="form-group">
 			<form:label path="id" class="col-sm-2 control-label">Id</form:label>
 			<div class="col-sm-4">
-				<form:input path="id" />
+				<form:input path="id" class="form-control"/>
 				<form:errors path="id" />
 			</div>
 		</div>
 		<div class="form-group">
 			<form:label path="designation" class="col-sm-2 control-label">Designation</form:label>
 			<div class="col-sm-4">
-				<form:input path="designation" />
+				<form:input path="designation" class="form-control"/>
 				<form:errors path="designation" />
 			</div>
 		</div>
 		<div class="form-group">
 			<form:label path="description" class="col-sm-2 control-label">Description</form:label>
 			<div class="col-sm-4">
-				<form:input path="description" />
+				<form:input path="description" class="form-control"/>
 				<form:errors path="description" />
 			</div>
 		</div>
 		<div class="form-group">
 			<form:label path="prix" class="col-sm-2 control-label">Prix</form:label>
 			<div class="col-sm-4">
-				<form:input path="prix" />
+				<form:input path="prix" class="form-control"/>
 				<form:errors path="prix" />
 			</div>
 		</div>
 		<div class="form-group">
 			<form:label path="quantite" class="col-sm-2 control-label">Quantité</form:label>
 			<div class="col-sm-4">
-				<form:input path="quantite" />
+				<form:input path="quantite" class="form-control"/>
 				<form:errors path="quantite" />
 			</div>
 		</div>

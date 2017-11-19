@@ -22,7 +22,7 @@
 		<div class="form-group">
 			<form:label path="id" class="col-sm-2 control-label">Catégorie à modifier</form:label>
 			<div class="col-sm-4">
-				<form:select cssClass="form-group" path="id" >
+				<form:select class="form-control" path="id" >
 					<form:options items="${listeCategories}" itemLabel="nomCategorie" itemValue="id"></form:options>
 					
 				</form:select>
