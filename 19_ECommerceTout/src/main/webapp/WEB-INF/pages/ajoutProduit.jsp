@@ -23,56 +23,57 @@
 	<form:form cssClass="form-horizontal" method="POST"
 		action="ajouterProduit" modelAttribute="produit"
 		enctype="multipart/form-data">
+
 		<div class="form-group">
-		<div class="col-sm-2 control-label">
-			<form:label path="designation" cssClass="col-sm-2 control-label">Designation</form:label>
-			</div>
+			<form:label path="designation" class="col-sm-2 control-label">Designation</form:label>
 			<div class="col-sm-4">
-				<form:input path="designation" />
+				<form:input path="designation" class="form-control" />
 				<form:errors path="designation" />
 			</div>
 		</div>
+
 		<div class="form-group">
 			<form:label path="description" class="col-sm-2 control-label">Description</form:label>
 			<div class="col-sm-4">
-				<form:input path="description" />
+				<form:input path="description" class="form-control" />
 				<form:errors path="description" />
 			</div>
 		</div>
+
 		<div class="form-group">
 			<form:label path="prix" class="col-sm-2 control-label">Prix</form:label>
 			<div class="col-sm-4">
-				<form:input path="prix" />
+				<form:input path="prix" class="form-control" />
 				<form:errors path="prix" />
 			</div>
 		</div>
 
-		<form:label path="quantite" class="col-sm-2  control-label">Quantité</form:label>
-		<div class="col-sm-4">
-			<form:input path="quantite" />
-			<form:errors path="quantite" />
+		<div class="form-group">
+			<form:label path="quantite" class="col-sm-2  control-label">Quantité</form:label>
+			<div class="col-sm-4">
+				<form:input path="quantite" class="form-control" />
+				<form:errors path="quantite" />
+			</div>
 		</div>
 
-<br />
-
-		<form:label path="image" class="col-sm-2 control-label">Image</form:label>
-		<div class="col-sm-4">
-			<input type="file" name="file" />
-			<form:errors path="image" />
+		<div class="form-group">
+			<form:label path="image" class="col-sm-2 control-label">Image</form:label>
+			<div class="col-sm-4">
+				<input type="file" name="file" />
+				<form:errors path="image" />
+			</div>
 		</div>
-<br />
-		<form:label path="categorie.id" class="col-sm-2 control-label">Catégorie</form:label>
-		<div class="col-sm-2">
-			<form:select class="form-control" path="categorie.id">
-				<form:options items="${listeCategories}" itemLabel="nomCategorie"
-					itemValue="id"></form:options>
 
-
-			</form:select>
+		<div class="form-group">
+			<form:label path="categorie.id" class="col-sm-2 control-label">Catégorie</form:label>
+			<div class="col-sm-4">
+				<form:select class="form-control" path="categorie.id">
+					<form:options items="${listeCategories}" itemLabel="nomCategorie"
+						itemValue="id"></form:options>
+				</form:select>
+			</div>
 		</div>
-		<br />
-		<br />
-		<br />
+
 		<div class="col-sm-offset-2 col-sm-8">
 			<input type="submit" value="Ajouter le produit" class="btn btn-info" />
 		</div>

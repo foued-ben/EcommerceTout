@@ -25,7 +25,7 @@
 		<div class="form-group">
 			<form:label path="id" class="col-sm-2 control-label">Id</form:label>
 			<div class="col-sm-4">
-				<form:input path="id" />
+				<form:input path="id" class="form-control"/>
 				<form:errors path="id" />
 			</div>
 		</div>

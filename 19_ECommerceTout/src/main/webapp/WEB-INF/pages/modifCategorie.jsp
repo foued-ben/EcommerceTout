@@ -23,7 +23,7 @@
 		<div class="form-group">
 			<form:label path="id" class="col-sm-2 control-label">Catégorie à modifier</form:label>
 			<div class="col-sm-4">
-				<form:select cssClass="form-group" path="id" >
+				<form:select class="form-control" path="id" >
 					<form:options items="${listeCategories}" itemLabel="nomCategorie" itemValue="id"></form:options>
 					
 				</form:select>
@@ -34,7 +34,7 @@
 		<div class="form-group">
 			<form:label path="nomCategorie" class="col-sm-2 control-label">Nom</form:label>
 			<div class="col-sm-4">
-				<form:input path="nomCategorie" />
+				<form:input path="nomCategorie" class="form-control"/>
 			</div>
 			<form:errors path="nomCategorie" />
 
@@ -42,7 +42,7 @@
 		<div class="form-group">
 			<form:label path="description" class="col-sm-2 control-label">Description</form:label>
 			<div class="col-sm-4">
-				<form:input path="description" />
+				<form:input path="description" class="form-control"/>
 				<form:errors path="description" />
 			</div>
 		</div>
