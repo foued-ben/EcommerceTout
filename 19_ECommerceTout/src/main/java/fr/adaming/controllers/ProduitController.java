@@ -1,19 +1,31 @@
 package fr.adaming.controllers;
 
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.List;
+
+
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import com.itextpdf.text.Document;
+import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.pdf.PdfPTable;
+import com.itextpdf.text.pdf.PdfWriter;
 
 import fr.adaming.model.Categorie;
 import fr.adaming.model.Produit;
@@ -118,11 +130,18 @@ public class ProduitController {
 	}
 
 	@RequestMapping(value = "modifierProduit", method = RequestMethod.POST)
-	public String soumettreModifProduit(Model model, @ModelAttribute("produitModif") Produit produit,
+	public String soumettreModifProduit(Model model, @Valid @ModelAttribute("produitModif") Produit produit, BindingResult br,
 			RedirectAttributes ra) {
+		if (br.hasErrors()) {
+			return "modifProduit";
+		}
+		
+		
 		Produit p_out = produitService.updateProduit(produit);
 		System.out.println(p_out);
 
+		
+		
 		if (p_out != null) {
 			List<Produit> listeProduits = produitService.getAllProduits();
 			model.addAttribute("listeProduits", listeProduits);
@@ -149,4 +168,57 @@ public class ProduitController {
 		return "accueil";
  
 	}
+	
+	@RequestMapping(value = "pdf", method = RequestMethod.GET)
+	public void ecrirePDF(){
+		//On récupère les informations sur les produits depuis la session.
+		List<Produit> listeProduits = produitService.getAllProduits();
+		Document document = new Document();
+		try {
+			PdfWriter pdfWriter = PdfWriter.getInstance(document, new FileOutputStream("C:\\Users\\inti0241\\RécapitulatifInventaire.pdf"));
+			document.open();
+
+//Lister les produits dans le PDF
+			Paragraph header = new Paragraph();
+			header.add("Les produits proposés par le magasin sont : ");
+			document.add(header);
+			document.add(new Paragraph("\n"));
+
+			// Entête du tableau
+			String[] enteteTableau ={"Id","Produit","Description","Quantité","Prix","Catégorie"};
+			PdfPTable table = new PdfPTable(enteteTableau.length);
+			//Création de l'entete du tableau
+
+			for(String caseEntete : enteteTableau){
+				Paragraph celluleEnteteTemp = new Paragraph();
+				celluleEnteteTemp.add(caseEntete);
+				table.addCell(celluleEnteteTemp);
+			}
+			
+			//On ajoute les produits dans la liste
+			for(Produit prod :listeProduits){
+				//Pour chaque produit on stocke les infos dans un tableau d'objet
+				Object[] tableauAEntrer  ={prod.getId(),prod.getDesignation(),prod.getDescription(),prod.getQuantite(),prod.getPrix(),prod.getCategorie().getNomCategorie()};
+				//On ajoute l'info de chaque objet du tableau dans la cellule après toString
+				for(Object objet: tableauAEntrer){
+					Paragraph paraTemp = new Paragraph();
+					paraTemp.add(objet.toString());
+					table.addCell(paraTemp);
+				}
+			}
+			document.add(table);
+
+			header.clear();
+
+			document.close();
+			
+		} catch (FileNotFoundException | DocumentException e) {
+
+			e.printStackTrace();
+		}
+	}
+	
+	
+	
+	
 }

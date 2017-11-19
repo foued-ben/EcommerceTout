@@ -42,7 +42,7 @@
 	</form:form>
 
 	<h2>Rechercher directement un produit avec son nom</h2>
-	<form method="GET" action="rechercheProduitMot">
+	<form method="get" action="rechercheProduitMot">
 		<input type="text" name="motRech" />
 		<div class="col-sm-offset-2 col-sm-8">
 			<input type="submit" value="Lancer la recherche"

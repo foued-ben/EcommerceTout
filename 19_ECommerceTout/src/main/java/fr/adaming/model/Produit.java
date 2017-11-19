@@ -47,16 +47,19 @@ public class Produit implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="id_pr")
+	//@NotEmpty(message="Veuillez spécifier un ID dans ce formulaire")
 	private long id;
-	//@NotEmpty(message="Veuillez entrer le nom du produit")
+	@NotEmpty(message="Veuillez entrer le nom du produit")
 	@Column(name="designation_pr")
 	private String designation;
-	//@NotEmpty(message="Veuillez entrer la description du produit")
+	@NotEmpty(message="Veuillez entrer la description du produit")
 	@Column(name="description_pr")
 	private String description;
 	@Column(name="prix_pr")
+	//@Min(value=1, message="Le prix doit être d'au moins 1€")
 	private double prix;
 	@Column(name="quantite_pr")
+	//@NotEmpty(message="Veuillez entrer le niveau de stock de ce produit")
 	private int quantite;
 	@Lob
 	private byte[] image;

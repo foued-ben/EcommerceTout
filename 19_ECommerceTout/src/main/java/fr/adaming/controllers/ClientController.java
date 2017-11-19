@@ -94,7 +94,7 @@ public class ClientController {
 		}
 	}
 	
-	@RequestMapping(value = "rechercheProduitMot", method = RequestMethod.POST)
+	@RequestMapping(value = "rechercheProduitMot", method = RequestMethod.GET)
 	public String soumettreRechProduit(Model model, @RequestParam("motRech") String motRech, RedirectAttributes ra) {
 		List<Produit> listeProduits = produitService.getProduitsByMot(motRech);
 
