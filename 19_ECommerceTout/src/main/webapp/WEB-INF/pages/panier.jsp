@@ -15,7 +15,6 @@
 	src="<c:url value="/resources/js/bootstrap.js"></c:url>"></script>
 </head>
 <body>
-<<<<<<< HEAD
 <div class="container">
 		<img id="im" width="1350" 
 	height="450" src="<c:url value="/resources/animalerie.jpg"></c:url>" />
@@ -60,10 +59,7 @@
 				href="${pageContext.request.contextPath}/client/recherche">Recherche</a></li>
 		</ul>
 	</nav>
-=======
 
-
->>>>>>> branch 'master' of https://github.com/foued-ben/EcommerceTout.git
 	<table class="table table-striped">
 		<tr>
 			<th>Produit</th>
