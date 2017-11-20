@@ -76,12 +76,6 @@
 		</div>
 	</form:form>
 
-
-	
-	<IMG class="superpose" id="img_1" src="WEB-INF/images/petshop.png"
-		width="200" height="200" />
-
-
 	<a href="${pageContext.request.contextPath}/mail">Mail</a>
 	<table class="table table-striped">
 		<tr>
