@@ -89,12 +89,14 @@
 	
 	<form method="get" action="rechercheProduitMot">
 	<br/>
-		<input type="text" name="motRech" />
-		<div class="col-sm-offset-2 col-sm-8">
+	<div class="form-group">
+		<input type="text" name="motRech" class="form-control" />
+		
+		</div>
 		<br/>
 			<input type="submit" value="Lancer la recherche"
 				class="btn btn-success" />
-		</div>
+		
 	</form>
 
 

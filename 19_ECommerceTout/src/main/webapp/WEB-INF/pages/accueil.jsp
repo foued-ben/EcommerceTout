@@ -16,27 +16,21 @@
 	src="<c:url value="/resources/js/jquery-3.2.1.js"></c:url>"></script>
 <script type="text/javascript"
 	src="<c:url value="/resources/js/bootstrap.js"></c:url>"></script>
-<<<<<<< HEAD
 </head>
 <body>
-=======
 </head>
 <body style="background-image: url(/images/herbe.jpg);">
->>>>>>> branch 'master' of https://github.com/foued-ben/EcommerceTout.git
 
 
 	<div class="container">
 		<img id="im" width="1350" 
 	height="450" src="<c:url value="/resources/animalerie.jpg"></c:url>" />
 	</div>
-<<<<<<< HEAD
 	
 	<IMG class="superpose" id="img_1" src="<c:url value="/resources/petshop.png"></c:url>"
 				width="300" height="150" />
 	
-=======
 
->>>>>>> branch 'master' of https://github.com/foued-ben/EcommerceTout.git
 	<!-- todo : copier les scripts quand on copiera la navbar -->
 	<nav class="navbar navbar-inverse">
 		<ul class="nav nav-pills">
@@ -83,12 +77,9 @@
 	</form:form>
 
 
-<<<<<<< HEAD
 	
-=======
 	<IMG class="superpose" id="img_1" src="WEB-INF/images/petshop.png"
 		width="200" height="200" />
->>>>>>> branch 'master' of https://github.com/foued-ben/EcommerceTout.git
 
 
 	<a href="${pageContext.request.contextPath}/mail">Mail</a>
