@@ -218,15 +218,4 @@ public class ProduitController {
 	
 	
 	
-
-	@RequestMapping(value="/photo")
-	@ResponseBody
-	public byte[] affichePhoto(long id) throws IOException {
-		Produit p=produitService.getProduitById(id);
-		if(p.getImage()!=null){
-			return IOUtils.toByteArray(new ByteArrayInputStream(p.getImage()));
-		} else{
-			return new byte[0];
-		}
-	}
 }

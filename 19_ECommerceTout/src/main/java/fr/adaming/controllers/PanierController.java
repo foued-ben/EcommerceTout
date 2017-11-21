@@ -1,5 +1,7 @@
 package fr.adaming.controllers;
 
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -8,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
+import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
@@ -18,6 +21,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import fr.adaming.model.Client;
@@ -189,6 +193,18 @@ public class PanierController {
 		modele.addAttribute("ligne", new LigneCommande());
 		return "accueil";
 	}
+	
+	@RequestMapping(value="/photo")
+	@ResponseBody
+	public byte[] affichePhoto(long id) throws IOException {
+		Produit p=produitService.getProduitById(id);
+		if(p.getImage()!=null){
+			return IOUtils.toByteArray(new ByteArrayInputStream(p.getImage()));
+		} else{
+			return new byte[0];
+		}
+	}
+	
 
 
 }

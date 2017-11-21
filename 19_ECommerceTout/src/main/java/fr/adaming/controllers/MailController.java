@@ -1,5 +1,7 @@
 package fr.adaming.controllers;
 
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -16,6 +18,7 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import javax.validation.Valid;
 
+import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
@@ -23,17 +26,21 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import fr.adaming.model.Client;
 import fr.adaming.model.LigneCommande;
 import fr.adaming.model.Produit;
 import fr.adaming.service.IClientService;
+import fr.adaming.service.IProduitService;
 
 @Controller
 @Scope("session")
 public class MailController {
 	@Autowired
 	private IClientService clientService;
+	@Autowired
+	private IProduitService produitService;
 
 	@RequestMapping(value = "/mail", method = RequestMethod.GET)
 	public String afficheMail(Model modele) {
@@ -100,5 +107,10 @@ public class MailController {
 		}
 		return "accueil";
 	}
+	
+	
+
+
+	
 
 }

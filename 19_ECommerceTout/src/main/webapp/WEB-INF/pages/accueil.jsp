@@ -94,7 +94,7 @@
 				<td>${produit.designation}</td>
 				<td>${produit.description}</td>
 				<td><img
-					src="${pageContext.request.contextPath}/produit/photo?id=${produit.id}" /></td>
+					src="${pageContext.request.contextPath}/panier/photo?id=${produit.id}" /></td>
 				<td>${produit.prix}</td>
 				<td>${produit.quantite}</td>
 				<td>${produit.categorie.nomCategorie}</td>
